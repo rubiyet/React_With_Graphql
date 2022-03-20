@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import CharactersList from "./components/CharactersList";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Character from "./components/Character";
+import Search from "./components/Search";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>ReelBoard Dev Teams</h1>
+      <Routes>
+        <Route strict path="/" element={< CharactersList />} />
+        <Route strict path="/search" element={< Search />} />
+        <Route strict path="/:id" element={< Character />} />
+      </Routes>
     </div>
   );
 }
